@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 
 const API_KEY = '2f44dbe234f7609a16da7327d83f3eb3';
 
 function App() {
   const [videos, setVideos] = useState([]);
+  const isFirstRender = useRef(true);
 
    const fetchTrendMovies = () => {
     axios
@@ -15,7 +16,15 @@ function App() {
       });
   }
 
-  useEffect(() => fetchTrendMovies(), []);
+  
+  useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      alert("Первое выполнение useRef")
+      return;
+    }
+    console.log(`Выполняентся useRef - ${Date.now()}`)
+    fetchTrendMovies()}, []);
 
   return (
     <div>
