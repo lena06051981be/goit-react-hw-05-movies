@@ -11,7 +11,7 @@ export const SharedLayout = () => {
       <Header>
         <Navigation>
           <Link to="/" end>
-            <FcFilmReel />
+            <FcFilmReel size={24}/>
           </Link>
           <span>
           <Link to="/" end>

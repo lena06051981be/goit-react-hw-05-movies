@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const BackBtn = styled.button`
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,10 +11,28 @@ export const BackBtn = styled.button`
   border-radius: 8px;
   background: none;
   cursor: pointer;
-  transition: box-shadow 250ms linear;
-  :hover {
+  color: rgb(200, 10, 10);
+  transition: box-shadow 150ms linear, transform 250ms ease-in-out;
+  &:before {
+    content: "";
+    background: linear-gradient(90deg, rgba(255, 255, 255, .1), rgba(255, 255, 255, .5));
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    top: -8px;
+    left: -75px;
+    transform: skewX(-45deg);
+    }
+  
+  &:hover {
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.6);
+    background: rgb(200, 10, 10);
+    color: #fff;
   }
+  &:hover:before {
+    left: 150px;
+    transition: .5s ease-in-out;
+    }
 `;
 
 export const InfoTitle = styled.h3`

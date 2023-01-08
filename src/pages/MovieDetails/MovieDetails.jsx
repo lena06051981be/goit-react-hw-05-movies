@@ -2,6 +2,7 @@ import { useEffect, useState, Suspense } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
 import { useParams, useLocation } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
+import {AiFillBackward} from 'react-icons/ai'
 
 import {
   InfoTitle,
@@ -64,7 +65,8 @@ export default function MovieDetails() {
     <>
       <main>
         <BackBtn type="button" onClick={onGoBack}>
-          Back to
+          <AiFillBackward size={18} />
+            Back to
         </BackBtn>
         {movieDetails && (
           <MovieCard
