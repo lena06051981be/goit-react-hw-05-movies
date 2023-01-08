@@ -4,15 +4,6 @@ const BASE_URL = 'https://api.themoviedb.org/3/';
 const API_KEY = 'f87210516a7f6fda7a5c975f08793382';
 const setLanguage = 'en-US'
 
-// useEffect(() => {
-//     axios
-//       .get(`https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}`)
-//       .then(response => {
-//         setVideos(response.data.results);
-//         console.log(response.data.results);
-//       });
-//   }, []);
-
 export const getTrendMovies = async (page = 1, signal) => {
    
     const response = await axios.get(
@@ -32,7 +23,7 @@ export const getMovieDetails = async id => {
     const response = await axios.get(`${BASE_URL}movie/${id}`, {
       params: {
         api_key: API_KEY,
-        language: 'en-US',
+        language: setLanguage,
       },
     });
     return response.data;
@@ -42,7 +33,7 @@ export const getMovieDetails = async id => {
     const response = await axios.get(`${BASE_URL}movie/${id}/credits`, {
       params: {
         api_key: API_KEY,
-        language: 'en-US',
+        language: setLanguage,
       },
     });
     return response.data.cast;
@@ -52,7 +43,7 @@ export const getMovieDetails = async id => {
     const response = await axios.get(`${BASE_URL}movie/${id}/reviews`, {
       params: {
         api_key: API_KEY,
-        language: 'en-US',
+        language: setLanguage,
       },
     });
     return response.data.results;
@@ -62,7 +53,7 @@ export const getMovieDetails = async id => {
     const response = await axios.get(`${BASE_URL}search/movie`, {
       params: {
         api_key: API_KEY,
-        language: 'en-US',
+        language: setLanguage,
         query: query,
       },
     });
