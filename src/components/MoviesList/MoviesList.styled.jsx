@@ -31,9 +31,10 @@ export const StyledLink = styled(Link)`
     object-fit: cover;
     overflow: hidden;
     /* border: 1px solid black; */
-    width: 282px;  
+    width: 280px;  
     display: flex;
     flex-direction:column;
+    /* border: 1px solid rgba(255, 255, 255, 0.007); */
     border-radius: 13px;
     /* margin-left: -0.5px;
     margin-top: -0.2px; */
@@ -50,9 +51,9 @@ export const StyledLink = styled(Link)`
 `
 export const ListItem = styled.li`
     margin: 0 auto;
-    border: 1px solid gray;
-    width: 279px;
-  border-radius: 14px;
+    border: 1px solid lightgray;
+    width: 280px;
+  border-radius: 13px;
   transition: box-shadow 250ms ease-in-out, border 150ms ease-in-out,transform 250ms ease-in-out ;
   :hover{
     box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.6);
