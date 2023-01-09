@@ -5,7 +5,7 @@ const API_KEY = 'f87210516a7f6fda7a5c975f08793382';
 const setLanguage = 'en-US'
 
 export const getTrendMovies = async (page = 1, signal) => {
-   
+  try { 
     const response = await axios.get(
         `${BASE_URL}trending/movie/day`, {
             signal,
@@ -16,7 +16,10 @@ export const getTrendMovies = async (page = 1, signal) => {
             },
           });   
     console.log(response);
-    return response.data;    
+    return response.data; 
+  } catch (err) {
+    throw new Error(err.message);
+  }   
 } 
 
 export const getMovieDetails = async id => {
@@ -49,13 +52,15 @@ export const getMovieDetails = async id => {
     return response.data.results;
   };
   
-  export const getSearchMovie = async query => {
+  export const getSearchMovie = async (query, page = 1, signal) => {    
     const response = await axios.get(`${BASE_URL}search/movie`, {
       params: {
         api_key: API_KEY,
         language: setLanguage,
         query: query,
+        page: page,
       },
     });
-    return response.data.results;
+    console.log(response.data);    
+    return response.data;
   };

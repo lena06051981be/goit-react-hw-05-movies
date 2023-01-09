@@ -8,6 +8,8 @@ import { getTrendMovies } from "services/movieApi"
 
 const Home = () => {
     const [page, setPage] = useState(1);
+    const [total_pages, setTotal_pages] = useState(2)
+    const [responsePagination, setResponsePagination] = useState(false)
     const [trendMovies, setTrendMovies] = useState([])
   
 
@@ -17,6 +19,15 @@ const Home = () => {
             try {
                 const response = await getTrendMovies(page, controller.signal)
                 setTrendMovies(() => [...response.results])
+                setTotal_pages(response.total_pages)
+                console.log(total_pages)
+
+                if (response.total_pages !== 0) {
+                    setResponsePagination(true)
+                }
+                if (response.total_pages === 0) {
+                    setResponsePagination(false)
+                }
                 
             } catch (e) {
                 console.error(e)
@@ -25,7 +36,7 @@ const Home = () => {
         getMovies()
         return 
         // () => controller.abort()
-    },[page]   
+    },[page, total_pages]   
     )
     
     
@@ -36,9 +47,9 @@ const Home = () => {
           
     return (
         <>
-            <Pagination page={page} onChange={handleChange} />
+            {responsePagination && <Pagination page={page} total_pages={total_pages} onChange={handleChange} />}
             <MoviesList Movies={trendMovies}  />
-            <Pagination page={page} onChange={handleChange}/>
+            {responsePagination && <Pagination page={page} total_pages={total_pages} onChange={handleChange} />}
         </>
         
     )
