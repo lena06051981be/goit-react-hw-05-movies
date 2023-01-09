@@ -16,8 +16,6 @@ export const Container = styled.div`
 export const Header = styled.header`
   display: flex;
   justify-content: space-between;
-  /* align-items: center; */
-  /* gap: 12px; */
   padding: 8px;
   margin-bottom: 16px;
   border-bottom-left-radius: 8px;
@@ -41,7 +39,11 @@ export const Navigation = styled.nav`
 export const Link = styled(NavLink)`
   font-size: 20px;
   color: black;
+  transition: color  150ms ease-in-out;  
   &.active {
     color: rgb(200, 10, 10);
   }
+  &:hover{
+    color: rgb(241, 53, 53);
+  } 
 `;
