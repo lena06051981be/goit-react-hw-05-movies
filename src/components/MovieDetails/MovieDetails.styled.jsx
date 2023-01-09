@@ -6,8 +6,9 @@ export const CardWrapper = styled.div`
   gap: 20px;
   margin-top: 10px;
   margin-bottom: 30px;
+  background-image: url(./img/pngegg2.png);
   > img {
-    width: 280px;
+    width: 320px;
     border-radius: 8px;
   }
 `;

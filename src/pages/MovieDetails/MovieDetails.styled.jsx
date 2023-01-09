@@ -7,9 +7,11 @@ export const BackBtn = styled.button`
   justify-content: center;
   align-items: center;
   padding: 8px;
+  font-size: 16px;
   border: 1px solid black;
-  border-radius: 8px;
+  border-radius: 18px;
   background: none;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.4);
   cursor: pointer;
   color: rgb(200, 10, 10);
   transition: box-shadow 150ms linear, transform 250ms ease-in-out;
@@ -25,8 +27,9 @@ export const BackBtn = styled.button`
     }
   
   &:hover {
-    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.6);
+    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.6);
     background: rgb(200, 10, 10);
+    border: 1px solid rgb(200, 10, 10);
     color: #fff;
   }
   &:hover:before {

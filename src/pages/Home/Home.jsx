@@ -8,7 +8,7 @@ import { getTrendMovies } from "services/movieApi"
 
 const Home = () => {
     const [page, setPage] = useState(1);
-    const [trMovies, setTrMovies] = useState([])
+    const [trendMovies, setTrendMovies] = useState([])
   
 
     useEffect(() => {
@@ -16,7 +16,7 @@ const Home = () => {
         async function getMovies() {
             try {
                 const response = await getTrendMovies(page, controller.signal)
-                setTrMovies(() => [...response.results])
+                setTrendMovies(() => [...response.results])
                 
             } catch (e) {
                 console.error(e)
@@ -37,7 +37,7 @@ const Home = () => {
     return (
         <>
             <Pagination page={page} onChange={handleChange} />
-            <MoviesList Movies={trMovies}  />
+            <MoviesList Movies={trendMovies}  />
             <Pagination page={page} onChange={handleChange}/>
         </>
         

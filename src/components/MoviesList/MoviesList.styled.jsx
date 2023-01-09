@@ -16,7 +16,7 @@ export const MoviesList = styled.ul`
   padding: 16px 0 0 0;
   list-style: none;
   margin-left: auto;
-  margin-right: auto; */
+  margin-right: auto; */  
 `
 export const Poster = styled.img`
     width: 280px;

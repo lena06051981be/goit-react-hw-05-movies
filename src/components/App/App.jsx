@@ -1,10 +1,13 @@
 import { Route, Routes } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import { SharedLayout } from "components/SharedLayout/SharedLayout";
+import { NotFound } from "pages/NotFound/NotFound";
+
 import Movies from "pages/Movies/Movies";
 import MovieDetails from "pages/MovieDetails/MovieDetails";
 import Cast from "components/Cast/Cast";
 import Reviews from "components/Reviews/Reviews";
+
 
 const Home = lazy(() => import('pages/Home/Home.jsx'));
 
@@ -20,7 +23,7 @@ export const App = () => {
             <Route path="cast" element={<Cast />} />
             <Route path="reviews" element={<Reviews />} />
         </Route>
-        {/* <Route path="*" element={<NotFound />}/> */}
+        <Route path="*" element={<NotFound />}/>
         </Route>  
         </Routes>
         </Suspense>
