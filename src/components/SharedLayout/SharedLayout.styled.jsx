@@ -1,10 +1,16 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
+import img from '../../img/pngegg22.png'
 
 export const Container = styled.div`
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 15px;   
+  padding: 0 15px;  
+  height: 100vh;
+  background-size: auto;
+  background-image: url(${img});
+  background-repeat: no-repeat;
+  background-position: bottom;  
 `;
 
 export const Header = styled.header`

@@ -7,6 +7,7 @@ export const MoviesList = styled.ul`
   justify-content: center;
   gap: 20px;
   padding: 20px 0;
+  background-color: #fff;
  /* display: grid;
   max-width: calc(100vw - 48px);
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
