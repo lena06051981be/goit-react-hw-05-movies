@@ -4,11 +4,10 @@ const BASE_URL = 'https://api.themoviedb.org/3/';
 const API_KEY = 'f87210516a7f6fda7a5c975f08793382';
 const setLanguage = 'en-US'
 
-export const getTrendMovies = async (page = 1, signal) => {
+export const getTrendMovies = async (page = 1) => {
   try { 
     const response = await axios.get(
         `${BASE_URL}trending/movie/day`, {
-            signal,
             params: {
               api_key: API_KEY,
               language: setLanguage,

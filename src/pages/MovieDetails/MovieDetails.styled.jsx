@@ -1,17 +1,21 @@
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const BackBtn = styled.button`
+export const BackBtn = styled(Link)`
   position: relative;
+  width: 90px;
   display: flex;
+  gap: 2px;
   justify-content: center;
   align-items: center;
   padding: 8px;
-  font-size: 16px;
+  font-size: 18px;
+  font-weight: 600;
   border: 1px solid black;
   border-radius: 18px;
   background: none;
   box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.4);
+  text-decoration: none;
   cursor: pointer;
   color: rgb(200, 10, 10);
   transition: box-shadow 150ms linear, transform 250ms ease-in-out;
@@ -38,7 +42,7 @@ export const BackBtn = styled.button`
     }
 `;
 
-export const InfoTitle = styled.h3`
+export const MovieTitle = styled.h3`
   margin-bottom: 20px;
 `;
 
@@ -48,7 +52,7 @@ export const LinkWrapper = styled.div`
   margin-bottom: 20px;
 `;
 
-export const InfoLink = styled(NavLink)`
+export const MovieLink = styled(NavLink)`
   display: flex;
   justify-content: center;
   align-items: center;

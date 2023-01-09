@@ -1,17 +1,17 @@
-import { useEffect, useState, Suspense } from 'react';
-import { Outlet, useNavigate } from 'react-router-dom';
-import { useParams, useLocation } from 'react-router-dom';
+import { useState, useEffect, Suspense } from 'react';
+import { Outlet, useParams, useLocation } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
 import {AiFillBackward} from 'react-icons/ai'
+import { MovieCard } from 'components/MovieDetails/MovieDetails';
+import Loader from 'components/Loader/Loader';
+// import defaultPoster from '../../img/defaultPoster.png';
 
 import {
-  InfoTitle,
-  InfoLink,
+  MovieTitle,
+  MovieLink,
   LinkWrapper,
   BackBtn,
 } from './MovieDetails.styled';
-import { MovieCard } from 'components/MovieDetails/MovieDetails';
-import Loader from 'components/Loader/Loader';
 
 import { getMovieDetails } from 'services/movieApi';
 
@@ -45,12 +45,8 @@ export default function MovieDetails() {
     fetchMovieDetailsCard();
   }, [movieId]);
 
-  // ------ Go back button-------///
   const location = useLocation();
-  const backLink = location.state?.from ?? '/';
-  const navigate = useNavigate();
-  const onGoBack = () => navigate(backLink);
-  // --------------------------////
+  const backLinkLocation = location.state?.from ?? '/';  
 
   const { poster_path, title, release_date, vote_average, overview, genres } =
     movieDetails;
@@ -58,15 +54,17 @@ export default function MovieDetails() {
   const poster = poster_path
     ? `https://image.tmdb.org/t/p/w500${poster_path}`
     : 'https://via.placeholder.com/200x300?text=Poster+Not+Found';
+    // : defaultPoster;
   const year = release_date.slice(0, 4);
   const vote = Math.floor(vote_average * 10);
   const movieGenres = genres.map(genre => genre.name).join(', ');
   return (
     <>
       <main style={{ backgroundColor: "#fff" }}>
-        <BackBtn type="button" onClick={onGoBack}>
-          <AiFillBackward size={18} />
-            Back to
+        {/* <BackBtn type="button" onClick={onGoBack}> */}
+        <BackBtn to={backLinkLocation}>
+          <AiFillBackward size={18} style={{ marginBottom: "-2px" }} />
+            Go Back
         </BackBtn>
         {movieDetails && (
           <MovieCard
@@ -79,10 +77,10 @@ export default function MovieDetails() {
           />
         )}
 
-        <InfoTitle>Additional information</InfoTitle>
+        <MovieTitle>Additional information</MovieTitle>
         <LinkWrapper>
-          <InfoLink to="cast">Cast</InfoLink>
-          <InfoLink to="reviews">Reviews</InfoLink>
+          <MovieLink to="cast">Cast</MovieLink>
+          <MovieLink to="reviews">Reviews</MovieLink>
         </LinkWrapper>
 
         <Suspense fallback={<Loader />}>
