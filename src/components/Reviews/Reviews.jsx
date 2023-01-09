@@ -1,15 +1,13 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-// import toast from 'react-hot-toast';
-import { toast } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
-
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 import { List } from './Reviews.styled';
 import Loader from 'components/Loader/Loader';
 import { getMovieReviews } from 'services/movieApi';
 
-// const customId = "custom-id-yes";
+const customId = "custom-id-yes";
 
 export default function Reviews() {
   const [review, setReview] = useState([]);
@@ -25,10 +23,9 @@ export default function Reviews() {
         const reviews = await getMovieReviews(movieId);
         if (reviews.length === 0) {
           setError(true);
-          toast.success('Please, enter another search value!');
-          // toast.warn('Sorry, there are no reviews', {
-          //   toastId: customId}); 
-          return;         
+          toast.warn('Sorry, there are no reviews', {
+            toastId: customId}); 
+          return;        
         }
         setReview(reviews);        
       } catch (error) {
@@ -42,8 +39,7 @@ export default function Reviews() {
 
   
   return (
-    <>
-       
+    <>       
       <List>
         {review.map(review => (
           <li key={review.id}>
@@ -51,10 +47,10 @@ export default function Reviews() {
             <p>{review.content}</p>
           </li>
         ))}        
-      </List>      
+      </List>
+      <ToastContainer autoClose={2000} position="top-center" theme="light" />      
       {error && <p>We don't have reviews for this movie</p> }  
       {loader && <Loader /> } 
-      {/* <ToastContainer autoClose={2000} position="top-right" theme="light" />         */}
     </>
   );
 }

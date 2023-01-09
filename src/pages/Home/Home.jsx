@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import Pagination from "components/Pagination/Pagination"
-import { toast } from 'react-hot-toast';
+// import { toast } from 'react-hot-toast';
 
 import MoviesList from "components/MoviesList/MoviesList"
 import { getTrendMovies } from "services/movieApi"
@@ -23,7 +23,8 @@ const Home = () => {
                 console.log(total_pages)
 
                 if (response.results.length === 0) {
-                    return toast('Sorry, try again later');
+                    return 
+                    // toast('Sorry, try again later');
                   }
                 if (response.total_pages !== 0) {
                     setResponsePagination(true)

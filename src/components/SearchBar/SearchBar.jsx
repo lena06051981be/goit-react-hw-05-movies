@@ -12,7 +12,11 @@ export const SearchBar = ({ onSubmit }) => {
     e.preventDefault();
     const searchQuery = query.toLowerCase().trim();
     if (searchQuery === '') {      
-      return  toast.success('It cannot be empty. Please fill out the form.');    
+      return  toast.success('It cannot be empty. Please try again.',
+      { iconTheme: {
+        primary: '#ecc92b',
+        secondary: '#FFFAEE' }, });
+      // {icon: '💡' }  
     }
     onSubmit(searchQuery);
     setQuery('');

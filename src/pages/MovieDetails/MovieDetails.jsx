@@ -1,6 +1,6 @@
 import { useState, useEffect, Suspense } from 'react';
 import { Outlet, useParams, useLocation } from 'react-router-dom';
-import { toast } from 'react-hot-toast';
+// import { toast } from 'react-hot-toast';
 import {AiFillBackward} from 'react-icons/ai'
 import { MovieCard } from 'components/MovieDetails/MovieDetails';
 import Loader from 'components/Loader/Loader';
@@ -33,7 +33,8 @@ export default function MovieDetails() {
       try {
         const movieDetails = await getMovieDetails(movieId);
         if (Object.keys(movieDetails).length === 0) {
-          return toast('Sorry, movie not found! Please try again later');
+          return 
+          // toast('Sorry, movie not found! Please try again later');
         }
         setMovieDetails(movieDetails);
       } catch (error) {
