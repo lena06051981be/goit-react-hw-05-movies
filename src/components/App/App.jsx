@@ -9,7 +9,6 @@ import Cast from "components/Cast/Cast";
 import Reviews from "components/Reviews/Reviews";
 import Loader from "components/Loader/Loader";
 
-
 const Home = lazy(() => import('pages/Home/Home.jsx'));
 
 export const App = () => {
@@ -34,4 +33,3 @@ export const App = () => {
 
 
 // <Suspense fallback={<div>Loading...</div>}></Suspense> 
-

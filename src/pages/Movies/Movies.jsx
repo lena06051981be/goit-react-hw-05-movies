@@ -7,10 +7,6 @@ import { getSearchMovie } from "services/movieApi";
 import { SearchBar } from "components/SearchBar/SearchBar";
 import MoviesList from "components/MoviesList/MoviesList"
 import Pagination from "components/Pagination/Pagination";
-// import { Pagination } from "@mui/material";
-
-
-
 
 const Movies = () => {
     const [page, setPage] = useState(1);
@@ -29,11 +25,10 @@ const Movies = () => {
 
     useEffect(() => {
         if (!searchedMovie) return
-        const controller = new AbortController();
         async function getMoviesById() {
             
             try {
-                const response = await getSearchMovie(searchedMovie, page, controller.signal)
+                const response = await getSearchMovie(searchedMovie, page)
                 
                 console.log(response)
                 setMovies(response.results)
@@ -49,7 +44,6 @@ const Movies = () => {
                 if (response.total_pages === 0) {
                     setResponsePagination(false)
                 }
-
                 
             } catch (e) {
                 console.error(e)
@@ -57,7 +51,6 @@ const Movies = () => {
        }
        getMoviesById()
        return 
-    //    () => controller.abort()
     },[searchedMovie, page, total_pages])
 
     const handleChange = (e, p) => {
