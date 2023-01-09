@@ -10,13 +10,14 @@ export const Container = styled.div`
   background-size: auto;
   background-image: url(${img});
   background-repeat: no-repeat;
-  background-position: bottom;  
+  background-position: center;  
 `;
 
 export const Header = styled.header`
   display: flex;
   justify-content: space-between;
   padding: 8px;
+  margin: 0 8px;
   margin-bottom: 16px;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;

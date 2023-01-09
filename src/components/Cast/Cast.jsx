@@ -47,8 +47,7 @@ export default function Cast() {
                     : 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/330px-No-Image-Placeholder.svg.png'
                 }
                 alt={cast.name}
-                width="100"
-                height="150"              />
+                />
               <h4>{cast.name}</h4>
               <p>Character: {cast.character}</p>
             </li>

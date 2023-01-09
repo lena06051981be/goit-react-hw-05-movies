@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom"
 
-export const MoviesList = styled.ul`
+export const List = styled.ul`
   display: grid;
   grid-template-columns: repeat(auto-fit, 280px);
   justify-content: center;
@@ -9,29 +9,7 @@ export const MoviesList = styled.ul`
   padding: 20px 0;
   background-color: #fff;
 `
-export const Poster = styled.img`
-    width: 280px;
-    height: 420px;
-    margin-bottom:10px;
-    object-fit: cover;
-    overflow: hidden;
-`
-
-export const StyledLink = styled(Link)`
-    object-fit: cover;
-    overflow: hidden;
-    width: 280px;  
-    display: flex;
-    flex-direction:column;
-    border-radius: 13px;
-    color:black;
-    > span {
-    padding-left: 10px;
-    padding-bottom: 3px;
-  }
-    
-`
-export const ListItem = styled.li`
+export const MovieItem = styled.li`
     margin: 0 auto;
     border: 1px solid lightgray;
     width: 280px;
@@ -45,6 +23,24 @@ export const ListItem = styled.li`
         text-overflow: clip;
     text-decoration: none;
   }
-  
-
+`
+export const StyledLink = styled(Link)`
+    object-fit: cover;
+    overflow: hidden;
+    width: 280px;  
+    display: flex;
+    flex-direction:column;
+    border-radius: 13px;
+    color:black;
+    > span {
+    padding-left: 10px;
+    padding-bottom: 3px;
+  }    
+`
+export const Poster = styled.img`
+    width: 280px;
+    height: 420px;
+    margin-bottom:10px;
+    object-fit: cover;
+    overflow: hidden;
 `
