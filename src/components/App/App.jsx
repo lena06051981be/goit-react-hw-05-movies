@@ -31,7 +31,7 @@ export const App = () => {
       </Routes>
       </Suspense>
       {/* <ToastContainer autoClose={2000} position="top-center" theme="light" /> */}
-      <Toaster />
+      <Toaster  position="top-center" />
     </>
   );
 };

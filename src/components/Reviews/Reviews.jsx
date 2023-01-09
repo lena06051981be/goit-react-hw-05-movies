@@ -9,7 +9,7 @@ import { List } from './Reviews.styled';
 import Loader from 'components/Loader/Loader';
 import { getMovieReviews } from 'services/movieApi';
 
-const customId = "custom-id-yes";
+// const customId = "custom-id-yes";
 
 export default function Reviews() {
   const [review, setReview] = useState([]);

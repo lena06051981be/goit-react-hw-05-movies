@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { SearchBtn, SearchForm, SearchInput } from './SearchBar.styled';
 import { FcSearch } from 'react-icons/fc';
-// import { toast, Toaster } from 'react-hot-toast';
+import { toast } from 'react-hot-toast';
 
 export const SearchBar = ({ onSubmit }) => {
   const [query, setQuery] = useState('');
@@ -12,8 +12,7 @@ export const SearchBar = ({ onSubmit }) => {
     e.preventDefault();
     const searchQuery = query.toLowerCase().trim();
     if (searchQuery === '') {      
-      return  
-      // toast.success('It cannot be empty. Please fill out the form.');      
+      return  toast.success('It cannot be empty. Please fill out the form.');    
     }
     onSubmit(searchQuery);
     setQuery('');
