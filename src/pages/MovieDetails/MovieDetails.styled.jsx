@@ -67,13 +67,13 @@ export const MovieLink = styled(NavLink)`
   color: black;
   transition: color 250ms linear, border 250ms linear;
   &.active {
-    background-color: orangered;
+    background-color: rgb(200, 10, 10);
     color: white;
-    border: 1px solid orangered;
+    border: 1px solid rgb(200, 10, 10);
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.6);
   }
   :hover:not(.active) {
-    color: orangered;
-    border: 1px solid orangered;
+    color: rgb(200, 10, 10);
+    border: 1px solid rgb(200, 10, 10);
   }
 `;
