@@ -67,6 +67,7 @@ export const MovieLink = styled(NavLink)`
   font-size: 18px;
   font-weight: 500;
   color: black;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.4);
   transition: box-shadow 150ms linear, color 250ms linear, 
   border 250ms linear, transform 250ms ease-in-out;
   &:before {
