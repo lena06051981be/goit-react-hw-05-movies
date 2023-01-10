@@ -4,8 +4,8 @@ import { SharedLayout } from "components/SharedLayout/SharedLayout";
 import { Toaster } from "react-hot-toast";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import Loader from "components/Loader/Loader";
 
+const Loader= lazy(() => import("components/Loader/Loader"));
 const Home = lazy(() => import('pages/Home/Home.jsx'));
 const Movies = lazy(() => import("pages/Movies/Movies"));
 const MovieDetails = lazy(() => import("pages/MovieDetails/MovieDetails"));
