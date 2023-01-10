@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 
 import MoviesList from "components/MoviesList/MoviesList"
 import { getTrendMovies } from "services/movieApi"
+import { Suspense } from "react";
 
 const customId = "custom-id-yes";
 
@@ -13,6 +14,8 @@ const Home = () => {
     const [total_pages, setTotal_pages] = useState(2)
     const [responsePagination, setResponsePagination] = useState(false)
     const [trendMovies, setTrendMovies] = useState([])
+    const [checkResponse, setCheckResponse] = useState(false)
+    const [title, setTitle] = useState(false)
     console.log(trendMovies)    
   
 
@@ -24,6 +27,9 @@ const Home = () => {
                 setTotal_pages(response.total_pages)
                 console.log(total_pages)
                 
+                if (trendMovies.length !== 0) {
+                    return setCheckResponse(true);                                 
+                  }
                 if (response.total_pages !== 0) {
                     setResponsePagination(true)
                 }
@@ -32,18 +38,19 @@ const Home = () => {
                 }                
             } catch (e) {
                 console.error(e)
+                if (!checkResponse){
+                    toast.error('No respoce from server'        
+                    ,        { toastId: customId });
+                    setTitle(true);
+                }
           }    
        }
         getMovies()
         return 
-    },[page, total_pages]   
+    },[page, total_pages, trendMovies.length, checkResponse]   
     )
+   
     
-    if (trendMovies.length === 0) {
-        // return toast('Sorry, try again later')
-        toast.error('No respoce from server'
-        , { toastId: customId, });              
-      }
     
     const handleChange = (e, p) => {
         setPage(p);
@@ -52,10 +59,11 @@ const Home = () => {
     return (
         <>
             {responsePagination && <Pagination page={page} total_pages={total_pages} onChange={handleChange} />}
-            <MoviesList Movies={trendMovies}  /> 
-            {trendMovies.length === 0 && <h1 style={{ textAlign: "center" }}>Sorry, try again later</h1>}           
+            <MoviesList Movies={trendMovies}  />                       
             {responsePagination && <Pagination page={page} total_pages={total_pages} onChange={handleChange} />}
-            
+            <Suspense >
+            {title && <h1 style={{ textAlign: "center" }}>Sorry, try again later</h1>}
+            </Suspense>
         </>        
     )
 }

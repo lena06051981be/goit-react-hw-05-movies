@@ -11,7 +11,7 @@ export const getTrendMovies = async (page = 1) => {
             params: {
               api_key: API_KEY,
               language: setLanguage,
-              page: 1001,
+              page: page,
             },
           });   
     console.log(response);
