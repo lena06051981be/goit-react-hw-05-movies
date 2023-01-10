@@ -51,6 +51,10 @@ export const LinkWrapper = styled.div`
   gap: 75px;
   /* gap: 10px; */
   margin-bottom: 20px;
+  padding: 10px 0;
+  margin-right: 14px;
+  border-bottom: 1px rgb(200, 10, 10) solid;
+  border-top: 1px rgb(200, 10, 10) solid;
 `;
 
 export const MovieLink = styled(NavLink)`
