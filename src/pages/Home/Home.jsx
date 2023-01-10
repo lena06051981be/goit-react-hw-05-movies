@@ -14,7 +14,7 @@ const Home = () => {
     const [trendMovies, setTrendMovies] = useState([])
     const [checkResponse, setCheckResponse] = useState(false)
     const [title, setTitle] = useState(false)
-    console.log(trendMovies)    
+    // console.log(trendMovies)    
   
 
     useEffect(() => {
