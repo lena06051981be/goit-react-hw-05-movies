@@ -24,7 +24,7 @@ const Home = () => {
                 const response = await getTrendMovies(page)
                 setTrendMovies(() => [...response.results])
                 setTotal_pages(response.total_pages)
-                console.log(total_pages)
+                // console.log(total_pages)
                 if (page === 1 ) {
                 toast.success(`We found total results ${response.total_results}`
                 , { toastId: customId, position: "top-left", });}
@@ -51,8 +51,7 @@ const Home = () => {
         return 
     },[page, total_pages, trendMovies.length, checkResponse]   
     )
-   
-    
+       
     
     const handleChange = (e, p) => {
         setPage(p);
