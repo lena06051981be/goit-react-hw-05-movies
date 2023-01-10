@@ -3,7 +3,8 @@ import { lazy, Suspense } from "react";
 import { SharedLayout } from "components/SharedLayout/SharedLayout";
 import { NotFound } from "pages/NotFound/NotFound";
 import { Toaster } from "react-hot-toast";
-
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 import MovieDetails from "pages/MovieDetails/MovieDetails";
 import Cast from "components/Cast/Cast";
@@ -18,7 +19,7 @@ const Home = lazy(() => import('pages/Home/Home.jsx'));
 export const App = () => {
   return (
     <>
-      <Suspense fallback={<Loader />}>
+      {/* <Suspense fallback={<Loader />}> */}
       <Routes>
         <Route path="/" element={<SharedLayout/>}>
         <Route index element={<Home/>}/>
@@ -30,12 +31,12 @@ export const App = () => {
         <Route path="*" element={<NotFound />}/>
         </Route>  
       </Routes>
-      </Suspense>
+      {/* </Suspense> */}
       
       <Toaster  position="top-center" />
+      <ToastContainer autoClose={2000} position="top-center" theme="light" />
     </>
   );
 };
-
 
 // <Suspense fallback={<div>Loading...</div>}></Suspense> 

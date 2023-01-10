@@ -61,7 +61,7 @@ export default function MovieDetails() {
   const movieGenres = genres.map(genre => genre.name).join(', ');
   return (
     <>
-      <main style={{ backgroundColor: "#fff" }}>
+      <main style={{ backgroundColor: "#fff", paddingLeft: "14px" }}>
         {/* <BackBtn type="button" onClick={onGoBack}> */}
         <BackBtn to={backLinkLocation}>
           <AiFillBackward size={18} style={{ marginBottom: "-2px" }} />
