@@ -1,10 +1,9 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, Suspense } from "react"
 import Pagination from "components/Pagination/Pagination"
 import { toast } from "react-toastify";
 
 import MoviesList from "components/MoviesList/MoviesList"
 import { getTrendMovies } from "services/movieApi"
-import { Suspense } from "react";
 
 const customId = "custom-id-yes";
 
