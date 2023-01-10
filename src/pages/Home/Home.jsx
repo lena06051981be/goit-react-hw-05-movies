@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 import Pagination from "components/Pagination/Pagination"
-// import { toast } from 'react-hot-toast';
 import { toast } from "react-toastify";
 
 import MoviesList from "components/MoviesList/MoviesList"
